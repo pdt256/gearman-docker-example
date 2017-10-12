@@ -22,6 +22,19 @@ docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gea
 Thu Oct 12 04:10:05 UTC 2017
 ```
 
+```
+$ make test-ping
+docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f ping -- google.com
+PING google.com (172.217.11.78): 56 data bytes
+64 bytes from 172.217.11.78: seq=0 ttl=37 time=17.972 ms
+64 bytes from 172.217.11.78: seq=1 ttl=37 time=18.958 ms
+64 bytes from 172.217.11.78: seq=2 ttl=37 time=20.025 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 17.972/18.985/20.025 ms
+```
+
 ## Log output
 ```
 $ make logs

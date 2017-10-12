@@ -16,6 +16,9 @@ restart: stop start
 test-date:
 	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f date
 
+test-ping:
+	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f ping -- google.com
+
 top:
 	docker-compose top
 

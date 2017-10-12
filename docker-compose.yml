@@ -10,7 +10,16 @@ services:
 
   date-worker:
     image: artefactual/gearmand:latest
-    command: gearman -w -h gearman-server -p 4730 -f date date
+    command: gearman -h gearman-server -p 4730 -w -f date date
+    depends_on:
+      - gearman-server
+    networks:
+      - app
+
+  ping-worker:
+    image: artefactual/gearmand:latest
+    user: root
+    command: gearman -h gearman-server -p 4730 -w -f ping xargs ping -c 3
     depends_on:
       - gearman-server
     networks:
