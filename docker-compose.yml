@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  gearman-server:
+    image: artefactual/gearmand:latest
+    ports:
+      - 127.0.0.1:4730:4730
+    networks:
+      - app
+
+  date-worker:
+    image: artefactual/gearmand:latest
+    command: gearman -w -h gearman-server -p 4730 -f date date
+    depends_on:
+      - gearman-server
+    networks:
+      - app
+
+networks:
+  app:
+    driver: "bridge"
