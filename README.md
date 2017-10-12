@@ -6,12 +6,16 @@
  $ make start
 docker-compose up -d
 Creating gearmanexample_gearman-server_1 ... done
-Creating gearmanexample_date-worker_1 ... done
+Creating gearmanexample_date-worker_1 ... done 
+Creating gearmanexample_stock-quote-worker_1 ... done 
+Creating gearmanexample_ping-worker_1 ... done
 docker-compose ps
-             Name                            Command               State            Ports          
----------------------------------------------------------------------------------------------------
-gearmanexample_date-worker_1      docker-entrypoint.sh gearm ...   Up      4730/tcp                
-gearmanexample_gearman-server_1   docker-entrypoint.sh gearmand    Up      127.0.0.1:4730->4730/tcp
+               Name                              Command               State            Ports          
+-------------------------------------------------------------------------------------------------------
+gearmanexample_date-worker_1          docker-entrypoint.sh gearm ...   Up      4730/tcp                
+gearmanexample_gearman-server_1       docker-entrypoint.sh gearmand    Up      127.0.0.1:4730->4730/tcp
+gearmanexample_ping-worker_1          docker-entrypoint.sh gearm ...   Up      4730/tcp                
+gearmanexample_stock-quote-worker_1   docker-entrypoint.sh gearm ...   Up      4730/tcp                
 ```
 
 ## Execute Job
