@@ -17,10 +17,10 @@ test-date:
 	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f date
 
 test-ping:
-	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f ping -- google.com
+	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f ping -- google.com
 
 test-stock-quote:
-	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f stock-quote -- GOOG
+	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f stock-quote -- GOOG
 
 top:
 	docker-compose top

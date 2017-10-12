@@ -28,7 +28,7 @@ Thu Oct 12 04:10:05 UTC 2017
 
 ```
 $ make test-ping
-docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f ping -- google.com
+docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f ping -- google.com
 PING google.com (172.217.11.78): 56 data bytes
 64 bytes from 172.217.11.78: seq=0 ttl=37 time=17.972 ms
 64 bytes from 172.217.11.78: seq=1 ttl=37 time=18.958 ms
@@ -41,7 +41,7 @@ round-trip min/avg/max = 17.972/18.985/20.025 ms
 
 ```
 $ make test-stock-quote 
-docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f stock-quote -- GOOG
+docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f stock-quote -- GOOG
 989.25
 ```
 
