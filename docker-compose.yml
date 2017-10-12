@@ -10,7 +10,7 @@ services:
 
   date-worker:
     image: artefactual/gearmand:latest
-    command: gearman -h gearman-server -p 4730 -w -f date date
+    command: gearman -h gearman-server -p 4730 -w -f date -- date
     depends_on:
       - gearman-server
     networks:
