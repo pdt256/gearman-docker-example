@@ -1,3 +1,5 @@
+GEARMAN=docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server
+
 logs:
 	docker-compose logs -f
 
@@ -14,13 +16,13 @@ status:
 restart: stop start
 
 test-date:
-	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f date
+	${GEARMAN} -s -f date
 
 test-ping:
-	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f ping -- google.com
+	${GEARMAN} -s -f ping -- google.com
 
 test-stock-quote:
-	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -s -f stock-quote -- GOOG
+	${GEARMAN} -s -f stock-quote -- GOOG
 
 top:
 	docker-compose top
