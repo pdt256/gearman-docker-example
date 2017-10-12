@@ -19,10 +19,10 @@ test-date:
 	${GEARMAN} -s -f date
 
 test-ping:
-	${GEARMAN} -s -f ping -- google.com
+	${GEARMAN} -s -f ping google.com
 
 test-stock-quote:
-	${GEARMAN} -s -f stock-quote -- GOOG
+	${GEARMAN} -s -f stock-quote GOOG
 
 top:
 	docker-compose top

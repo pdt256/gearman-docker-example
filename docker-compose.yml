@@ -19,7 +19,7 @@ services:
   ping-worker:
     image: artefactual/gearmand:latest
     user: root
-    command: gearman -h gearman-server -p 4730 -w -f ping xargs ping -c 3
+    command: gearman -h gearman-server -p 4730 -w -f ping -- xargs ping -c 3
     depends_on:
       - gearman-server
     networks:
@@ -28,7 +28,7 @@ services:
   stock-quote-worker:
     image: artefactual/gearmand:latest
     user: root
-    command: gearman -h gearman-server -p 4730 -w -f stock-quote xargs /data/get-stock-quote.sh
+    command: gearman -h gearman-server -p 4730 -w -f stock-quote -- xargs /data/get-stock-quote.sh
     volumes:
       - ./bin:/data
     depends_on:
