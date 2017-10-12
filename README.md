@@ -70,3 +70,15 @@ gearman-server_1  |    INFO 2017-10-12 04:10:22.000000 [     3 ] Peer connection
 gearman-server_1  |    INFO 2017-10-12 04:10:22.000000 [     3 ] Disconnected 172.18.0.7:35358
 gearman-server_1  |    INFO 2017-10-12 04:10:22.000000 [     3 ] Gear connection disconnected: -:-
 ```
+
+## Resource utilization
+
+```
+$ make stats
+docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}\t{{.BlockIO}}" --no-stream
+NAME                                  CPU %               MEM USAGE / LIMIT    MEM %               NET I/O             BLOCK I/O
+gearmanexample_stock-quote-worker_1   0.00%               560KiB / 1.952GiB    0.03%               1.37kB / 535B       0B / 0B
+gearmanexample_ping-worker_1          0.00%               604KiB / 1.952GiB    0.03%               1.24kB / 486B       0B / 0B
+gearmanexample_date-worker_1          0.00%               536KiB / 1.952GiB    0.03%               1.33kB / 486B       0B / 0B
+gearmanexample_gearman-server_1       0.00%               1020KiB / 1.952GiB   0.05%               2.6kB / 1.22kB      0B / 0B
+```
