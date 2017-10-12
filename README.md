@@ -35,6 +35,12 @@ PING google.com (172.217.11.78): 56 data bytes
 round-trip min/avg/max = 17.972/18.985/20.025 ms
 ```
 
+```
+$ make test-stock-quote 
+docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f stock-quote -- GOOG
+989.25
+```
+
 ## Log output
 ```
 $ make logs

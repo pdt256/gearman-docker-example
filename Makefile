@@ -19,6 +19,9 @@ test-date:
 test-ping:
 	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f ping -- google.com
 
+test-stock-quote:
+	docker run --rm -it --network=gearmanexample_app artefactual/gearmand:latest gearman -h gearman-server -f stock-quote -- GOOG
+
 top:
 	docker-compose top
 
